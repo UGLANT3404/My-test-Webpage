@@ -277,18 +277,27 @@ const searchInput = document.getElementById("searchInput");
 const cards = document.querySelectorAll(".card");
 
 searchInput.addEventListener("keyup", function () {
-  const keyword = searchInput.value.toLowerCase();
 
-  cards.forEach(function (card) {
-    const title = card.querySelector("h2").textContent.toLowerCase();
+    const keyword = searchInput.value.toLowerCase().trim();
 
-    if (title.includes(keyword)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+    cards.forEach(function(card){
+
+        const text = card.textContent.toLowerCase();
+
+        if(keyword === ""){
+            card.style.display = "none";
+        }
+        else if(text.includes(keyword)){
+            card.style.display = "block";
+        }
+        else{
+            card.style.display = "none";
+        }
+
+    });
+
 });
+
   </script>
 
 
