@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
+  
 
 <head>
   <title>My First Website</title>
   <style>
+ <div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search Tower..."
+  >
+</div>   
     body {
       background-color: #f4f7fb;
       font-family: Arial, sans-serif;
@@ -39,6 +47,7 @@
         flex-wrap: wrap;
       padding: 15px;
     }
+  
 
     .card {
       background-color: white;
@@ -111,6 +120,24 @@
         text-align:center;
         animation: popup 0.3s;
       }
+    .search-box {
+  text-align: center;
+  margin: 20px;
+}
+
+     .search-box input {
+  width: 300px;
+  max-width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #0066cc;
+  border-radius: 10px;
+  outline: none;
+}
+
+      .search-box input:focus {
+  border-color: #004999;
+}
    @keyframes popup{
      from{transform:scale(0);
      }
@@ -246,6 +273,22 @@
           modal.style.display = "none";
         }
 }
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".card");
+
+searchInput.addEventListener("keyup", function () {
+  const keyword = searchInput.value.toLowerCase();
+
+  cards.forEach(function (card) {
+    const title = card.querySelector("h2").textContent.toLowerCase();
+
+    if (title.includes(keyword)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
   </script>
 
 
