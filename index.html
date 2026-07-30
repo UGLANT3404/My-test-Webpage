@@ -278,19 +278,19 @@ const cards = document.querySelectorAll(".card");
 
 searchInput.addEventListener("keyup", function () {
 
-    const keyword = searchInput.value.toLowerCase().trim();
+  const keyword = searchInput.value.toLowerCase().trim();
 
-    cards.forEach(function(card){
+  cards.forEach(function(card){
 
-        const text = card.textContent.toLowerCase();
+  const text = card.textContent.toLowerCase();
 
-        if(keyword === ""){
-            card.style.display = "none";
-        }
-        else if(text.includes(keyword)){
+    if(keyword === ""){
+  card.style.display = "none";
+      }
+    else if(text.includes(keyword)){
             card.style.display = "block";
         }
-        else{
+     else{
             card.style.display = "none";
         }
 
